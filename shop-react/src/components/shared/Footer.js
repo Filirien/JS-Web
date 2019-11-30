@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 function Footer() {
     return (
-        <div>Footer</div>
+        <div>Copyright &copy; 2019</div>
     )
 }
 

@@ -1,9 +1,21 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 
-function Logout() {
-    return (
-        <div>Logot</div>
-    )
+class Logout extends Component {
+  componentWillMount () {
+    this.props.logout();
+    this.props.createNotification('info', 'Logged out');
+    this.props.history.push('/');
+  }
+
+  render () {
+    return null;
+  }
+}
+
+Logout.propTypes = {
+  logout: PropTypes.func.isRequired,
+  createNotification: PropTypes.func.isRequired
 }
 
 export default Logout;
