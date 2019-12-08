@@ -26,7 +26,7 @@ class Header extends Component {
 
         return (
             <Navbar bg="primary" variant="dark">
-                <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" /></Navbar.Brand>
+                <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" alt=""/></Navbar.Brand>
                 {links}
             </Navbar>
         );

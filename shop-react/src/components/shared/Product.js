@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 
 class Product extends Component {
@@ -8,7 +7,7 @@ class Product extends Component {
     return (
       <div>
         <Card>
-          <Card.Link href={'/details/' + this.props.product._id}> <img className="App-img-product" variant="top" src={this.props.product.img}/></Card.Link>
+          <Card.Link href={'/details/' + this.props.product._id}> <img variant="top" src={this.props.product.img} alt=""/></Card.Link>
           <Card.Body>
             <Card.Title>{this.props.product.name}</Card.Title>
             <Card.Text>{this.props.product.description}</Card.Text>
