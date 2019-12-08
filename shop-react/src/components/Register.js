@@ -23,6 +23,7 @@ class Register extends Component {
 
   formSubmit = e => {
     e.preventDefault()
+
     let user = {
       username: this.state.username,
       password: this.state.password,
@@ -31,9 +32,11 @@ class Register extends Component {
       password2: this.state.password2,
       imgUrl: this.state.imgUrl
     }
+
     let toReturn = this.validateUserData(user);
     if (toReturn)
       return;
+      
     this.props.register(user).then(res => {
       if (res.code) {
         this.props.createNotification('Error', 'Username already exists');

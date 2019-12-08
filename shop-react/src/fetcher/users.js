@@ -1,8 +1,6 @@
-import * as urls from './urls'
-
 export async function login(user){
     let res;
-    await fetch(urls.LOGIN_URL,{
+    await fetch('http://localhost:1337/api/users/login',{
         method: 'POST',
         body: JSON.stringify(user),
         headers:{
@@ -21,7 +19,7 @@ export async function login(user){
 
 export async function register (user) {
   let res;
-  await fetch(urls.REGISTER_URL, {
+  await fetch('http://localhost:1337/api/users/register', {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
@@ -43,7 +41,7 @@ export function logout () {
 }
 
 export function update (user) {
-  fetch(urls.USERS_URL, {
+  fetch('http://localhost:1337/api/users', {
     method: 'PUT',
     body: JSON.stringify(user),
     headers: {

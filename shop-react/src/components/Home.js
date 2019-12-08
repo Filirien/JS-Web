@@ -1,42 +1,35 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import React, { Component } from 'react'
+import Products from './Products'
 
-class Header extends Component {
-  render () {
-    let user = localStorage.getItem('user');
-    let isAdmin = user !== null && JSON.parse(user).roles[0] === 'Admin';
-    let addCategory = isAdmin ? <Nav.Link href='/create/category'> Add category</Nav.Link> : '';
-    let links = this.props.isLogged
-      ? 
-      <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        {addCategory}
-        <Nav.Link href="/categories">Categories</Nav.Link>
-        <Nav.Link href="/favorites">Favorites</Nav.Link>
-        <Nav.Link href="/myProfile">My profile</Nav.Link>
-        <Nav.Link href="/logout">Logout</Nav.Link>
-      </Nav>
-      : 
-      <Nav className="mr-auto">
-        <Nav.Link href="/login">Login</Nav.Link>
-        <Nav.Link href="/register">Register</Nav.Link>
-      </Nav>;
+import * as products from '../fetcher/products'
+import './Home.css'
+class Home extends Component {
+  constructor (props) {
+    super(props)
 
-    return (
-      <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" /></Navbar.Brand>
-        {links}
-      </Navbar>
-    );
+    this.state = {
+      newProducts: []
+    };
   }
+
+  componentDidMount () {
+    products.getNewProducts().then(newProducts => {
+      this.setState({ newProducts });
+    });
+  }
+
+  render () {
+    return (
+      <div>
+        <h1 class="ribbon">
+          <strong class="ribbon-content">Welcome to our new proposals</strong>
+        </h1>
+        <Products
+          products={this.state.newProducts}
+        />
+      </div>
+    );
+  };
 }
 
-Header.propTypes = {
-  logo: PropTypes.string.isRequired,
-  logout: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool.isRequired
-};
-
-export default Header;
+export default Home;
