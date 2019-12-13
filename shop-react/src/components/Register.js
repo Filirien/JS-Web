@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Form, Button } from 'react-bootstrap'
+import styled from 'styled-components'
 
 class Register extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Register extends Component {
       email: ''
     }
   }
+
 
   inputChange = (e, key) => {
     let state = this.state;
@@ -36,7 +38,7 @@ class Register extends Component {
     let toReturn = this.validateUserData(user);
     if (toReturn)
       return;
-      
+
     this.props.register(user).then(res => {
       if (res.code) {
         this.props.createNotification('Error', 'Username already exists');
@@ -69,17 +71,18 @@ class Register extends Component {
   }
 
   render() {
+   
     return (
       <div>
-        <div className='App-body-title'><p>REGISTER</p></div>
         <Form className="registerForm" onSubmit={this.formSubmit}>
+          <div className='App-title'><p>REGISTER</p></div>
           <Form.Group>
             <Form.Label>Full name</Form.Label>
             <Form.Control type='text' id='name' name='name' value={this.state.name} onChange={(e) => this.inputChange(e, 'name')} required placeholder="Name" />
           </Form.Group>
           <Form.Group>
             <Form.Label>Username</Form.Label>
-              <Form.Control type='text' id='username' name='username' value={this.state.username} onChange={(e) => this.inputChange(e, 'username')} required placeholder="Username" />
+            <Form.Control type='text' id='username' name='username' value={this.state.username} onChange={(e) => this.inputChange(e, 'username')} required placeholder="Username" />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email address</Form.Label>
@@ -93,7 +96,7 @@ class Register extends Component {
             <Form.Label>Repeat Password</Form.Label>
             <Form.Control type='password' id='password2' name='password2' value={this.state.password2} onChange={(e) => this.inputChange(e, 'password2')} required placeholder="Repeat Password" />
           </Form.Group>
-          <Button variant="primary" type="submit">Register</Button>
+          <Button variant="primary" type="submit" style={{margin: 'auto', display: 'block'}}>Register</Button>
         </Form>
       </div>
     )

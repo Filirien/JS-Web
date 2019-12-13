@@ -30,7 +30,7 @@ export default class Categories extends Component {
 
     return (
       <div>
-        <div><p>CATEGORIES</p></div>
+        <div className="App-title"><p>CATEGORIES</p></div>
         {categoriesComponents}
       </div>
     )

@@ -38,8 +38,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className='App-body-title'><p>LOGIN</p></div>
         <Form className="registerForm" onSubmit={this.formSubmit}>
+          <div className='App-title'><p>LOGIN</p></div>
           <Form.Group>
             <Form.Label>Username</Form.Label>
             <Form.Control type='text' id='username' name='username' value={this.state.username} onChange={(e) => this.inputChange(e, 'username')} required placeholder="Username" />
@@ -48,7 +48,7 @@ class Login extends Component {
             <Form.Label>Password</Form.Label>
             <Form.Control type='password' id='password' name='password' value={this.state.password} onChange={(e) => this.inputChange(e, 'password')} required placeholder="Password" />
           </Form.Group>
-          <Button variant="primary" type="submit">Login</Button>
+          <Button variant="primary" type="submit" style={{margin: 'auto', display: 'block'}}>Login</Button>
         </Form>
       </div>
     )

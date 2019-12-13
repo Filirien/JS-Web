@@ -21,9 +21,10 @@ class Home extends Component {
   render () {
     return (
       <div>
-        <h1 class="ribbon">
+        {/* <h1 class="ribbon">
           <strong class="ribbon-content">Welcome to our new proposals</strong>
-        </h1>
+        </h1> */}
+        <h1 className="App-title">Welcome to our new proposals</h1>
         <Products
           products={this.state.newProducts}
         />

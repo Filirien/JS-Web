@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import * as categories from '../fetcher/categories'
 
 class CreateCategory extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -23,7 +23,7 @@ class CreateCategory extends Component {
       this.props.createNotification('Error', 'Category name must be at least 4 symbols long');
       return;
     }
-    
+
     categories.create(category).then(res => {
       if (res.code) {
         this.props.createNotification('Error', 'Category already exists');
@@ -40,15 +40,16 @@ class CreateCategory extends Component {
     this.setState(state);
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <div>CREATE CATEGORY</div>
         <Form onSubmit={this.onSubmit}>
+          <div className="App-title">CREATE CATEGORY</div>
+          <br />
           <Form.Group>
             <Form.Label>Name*</Form.Label>
-            <Form.Control value={this.state.name} onChange={e => this.inputChange(e, 'name')} required  placeholder="Name of category" />
-          </Form.Group>        
+            <Form.Control value={this.state.name} onChange={e => this.inputChange(e, 'name')} required placeholder="Name of category" />
+          </Form.Group>
           <Button variant="primary" type="submit">Create category</Button>
         </Form>
       </div>

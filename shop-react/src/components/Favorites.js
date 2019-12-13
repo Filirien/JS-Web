@@ -23,7 +23,7 @@ class Favorites extends Component {
   render () {
     return (
       <div>
-        <div><p>FAVORITES</p></div>
+        <div className="App-title"><p>FAVORITES</p></div>
         <Products
           products={this.state.products}
         />

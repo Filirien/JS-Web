@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div>Copyright &copy; 2019</div>
+        <div className="fixed-footer">Copyright &copy; 2019</div>
     )
 }
 

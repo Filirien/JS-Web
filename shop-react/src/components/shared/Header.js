@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav } from 'react-bootstrap';
 
-
 class Header extends Component {
     render() {
         let user = localStorage.getItem('user');
@@ -10,6 +9,7 @@ class Header extends Component {
         let addCategory = isAdmin ? <Nav.Link href='/create/category'> Add category</Nav.Link> : '';
         let links = this.props.isLogged
             ?
+
             <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 {addCategory}
@@ -18,6 +18,7 @@ class Header extends Component {
                 <Nav.Link href="/myProfile">My profile</Nav.Link>
                 <Nav.Link href="/logout">Logout</Nav.Link>
             </Nav>
+
             :
             <Nav className="mr-auto">
                 <Nav.Link href="/login">Login</Nav.Link>
@@ -25,10 +26,14 @@ class Header extends Component {
             </Nav>;
 
         return (
-            <Navbar bg="primary" variant="dark">
-                <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" alt=""/></Navbar.Brand>
-                {links}
-            </Navbar>
+            <div class="fixed-header">
+                <div class="container">
+                    <Navbar>
+                        <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" alt="" /></Navbar.Brand>
+                        {links}
+                    </Navbar>
+                </div>
+            </div >
         );
     }
 }

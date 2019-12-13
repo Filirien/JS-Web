@@ -21,7 +21,7 @@ class Products extends Component {
 
         return (
             <div>
-                <Container fluid>
+                <Container fluid sm="8">
                     <Row>
                         {productItems}
                     </Row>

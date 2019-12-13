@@ -65,6 +65,8 @@ class CreateProduct extends Component {
     return (
       <div>
         <Form className="registerForm" onSubmit={this.onSubmit}>
+          <div className="App-title">Create new product</div>
+          <br/>
           <Form.Group>
             <Form.Label>Name*</Form.Label>
             <Form.Control value={this.state.name} onChange={e => this.inputChange(e, 'name')} required  placeholder="Name of product" />

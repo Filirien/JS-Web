@@ -46,11 +46,11 @@ class MyProfile extends Component {
   render() {
     return (
       <div>
-        <div className='App-body-title'><p>MY PROFILE</p></div>
-        <div className='App-details'>
+        <div>
           {this.state.isEditing ?
             <div>
               <Form className="registerForm" onSubmit={this.editClick}>
+                <div className='App-title'><p>MY PROFILE</p></div>
                 <Form.Group>
                   <Form.Label>Username*</Form.Label>
                   <Form.Control type='text' value={this.props.user.username} disabled />
@@ -72,6 +72,7 @@ class MyProfile extends Component {
             </div>
             :
             <div>
+              <div className='App-title'><p>MY PROFILE</p></div>
               <p>{'Username: ' + this.props.user.username}</p>
               <p>{'Name: ' + this.state.name}</p>
               <p>{'Email: ' + this.state.email}</p>
