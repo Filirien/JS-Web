@@ -58,13 +58,12 @@ class Comments extends Component {
 
     return (
       <Card border="primary">
-        <Card.Header>Comments</Card.Header>
+        <Card.Header className="App-title">Comments</Card.Header>
         <Card.Body>
           {comments}
           {input}
         </Card.Body>
         <Card.Footer>
-
           <Button onClick={this.handleBtnOnClick}>{button}</Button>
         </Card.Footer>
       </Card>

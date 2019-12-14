@@ -60,10 +60,10 @@ class Comment extends Component {
 
     let authorBtns = isAdmin || this.props.isCreator
       ? <div styles={{ position: 'relative' }}>
-        <Button  onClick={this.editClick}>
+        <Button  style={{ marginLeft: '20px'}} onClick={this.editClick}>
           {btnText}
         </Button>
-        <Button onClick={() => this.deleteClick(this.props.comment._id)}>
+        <Button style={{ marginLeft: '20px'}} onClick={() => this.deleteClick(this.props.comment._id)}>
           Remove
         </Button>
       </div>

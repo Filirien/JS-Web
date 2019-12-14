@@ -98,8 +98,9 @@ class Details extends Component {
         {product !== {}
           ?
           <div className="col-sm-7" style={{display: 'inline-flex'}}>
+            <br/>
             <Card className="text-center">
-              <Card.Header style={{ fontSize: '200%' }}>{product.name}</Card.Header>
+              <Card.Header className="App-title" style={{ fontSize: '200%' }}>{product.name}</Card.Header>
                 <Card.Img src={this.state.product.img} alt={this.state.product.name} />
                 <Card.Body>
                   <Card.Title>Price: {product.price}$</Card.Title>
@@ -117,6 +118,7 @@ class Details extends Component {
         {this.state.user
           ?           
           <div className="col-sm-5" style={{display: 'inline-block'}}>
+            <br/>
             <Comments
               productId={this.state.product._id}
               comments={this.state.comments}
