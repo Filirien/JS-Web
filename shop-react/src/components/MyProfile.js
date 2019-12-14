@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Card } from 'react-bootstrap'
 
 class MyProfile extends Component {
   constructor(props) {
@@ -67,22 +67,23 @@ class MyProfile extends Component {
                   <Form.Label>Image Url*</Form.Label>
                   <Form.Control type='url' value={this.state.imgUrl} onChange={(e) => this.inputChange(e, 'imgUrl')} required />
                 </Form.Group>
-                <Button variant="primary" type="submit">Save</Button>
+                <Button variant="success" style={{ position:'relative', left:'45%', marginBottom:'17%'}} type="submit">Save</Button>
               </Form>
             </div>
             :
-            <div>
-              <div className='App-title'><p>MY PROFILE</p></div>
-              <p>{'Username: ' + this.props.user.username}</p>
-              <p>{'Name: ' + this.state.name}</p>
-              <p>{'Email: ' + this.state.email}</p>
-              <button className='App-profile-btn' onClick={this.editClick}>Edit</button>
-            </div>
+            <Card style={{ width: '30rem',  marginBottom:'2.8%' }}>
+                <Card.Title className='App-title'>MY PROFILE</Card.Title>
+
+              <Card.Img variant="top" src={this.state.imgUrl || './imgages/default-profile-picture.jpg'} />
+              <Card.Body>
+              <Card.Title>Username: {this.props.user.username}</Card.Title>
+              <Card.Title>Name: {this.state.name}</Card.Title>
+              <Card.Title>Email: {this.state.email}</Card.Title>
+
+                <Button variant="warning" style={{ position:'relative', left:'45%' }} onClick={this.editClick}>Edit</Button>
+              </Card.Body>
+            </Card>
           }
-        </div>
-        <div className='App-details-img-container'>
-          <img className='App-details-img' src={this.state.imgUrl ||
-            './imgages/default-profile-picture.jpg'} alt={'Profile'} />
         </div>
       </div>
     )
