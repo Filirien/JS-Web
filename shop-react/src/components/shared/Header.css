@@ -29,3 +29,11 @@ nav a{
 .container p{
     line-height: 200px; 
 } */
+.mr-auto :hover{
+    background: rgba(109, 221, 255, 0.884);
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+    

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Comment from './shared/Comment'
+import './Comments.css'
 
 class Comments extends Component {
   constructor(props) {
@@ -39,7 +40,8 @@ class Comments extends Component {
 
   render() {
     let comments = this.props.comments.map((comment, index) => {
-      return (
+      return (        
+        
         <Comment
           key={comment._id}
           comment={comment}
@@ -55,13 +57,13 @@ class Comments extends Component {
     let input = this.state.isEditing ? <input type='text' value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} required /> : '';
 
     return (
-      <div >
-        <div><p>Comments</p></div>
-        <div>
+      <div className='App-comments'>
+        <div className='App-body-title-comments'><p>Comments</p></div>
+        <div className='App-details-comments'>
           {comments}
-          <div >
+          <div className='App-add-comment-btn'>
             {input}
-            <button onClick={this.handleBtnOnClick}>
+            <button className='App-add-comment' onClick={this.handleBtnOnClick}>
               {button}
             </button>
           </div>

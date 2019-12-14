@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { Card, Button } from 'react-bootstrap'
 
 import * as products from '../fetcher/products'
 import * as comments from '../fetcher/comments'
@@ -88,40 +89,44 @@ class Details extends Component {
     }
     let price = product.price;
     let user = localStorage.getItem('user');
-    let addToFavorites = user ? <button onClick={this.addProductToFavorites}>{this.state.isAdded ? 'Remove from favorites' : 'Add to favorites'}</button> : '';
+    let addToFavorites = user ? <Button style={{ marginLeft: 20}} onClick={this.addProductToFavorites}>{this.state.isAdded ? 'Remove from favorites' : 'Add to favorites'}</Button> : '';
     let isAdmin = user && JSON.parse(localStorage.getItem('user')).roles[0] === 'Admin';
-    let editProduct = isAdmin ? <button><Link to={`/edit/${this.props.match.params.productId}`}>Edit product</Link></button> : '';
+    let editProduct = isAdmin ? <Button href={`/edit/${this.props.match.params.productId}`}>Edit product</Button> : '';
+
     return (
-      <div>
+      <div className="col-sm-12" style={{display: 'inline-block'}}> 
         {product !== {}
-          ? <div>
-            <div>
-              <p>{product.name} details</p>
-              {addToFavorites}
-              {editProduct}
-            </div>
-            <div>
-              <p>{product.name}</p>
-              <p>{price} $</p>
-              <p>{product.description}</p>
-              {additionalInformation}
-            </div>
-            <div>
-              <img src={this.state.product.img} alt={this.state.product.name} />
-            </div>
+          ?
+          <div className="col-sm-8" style={{display: 'inline-block'}}>
+            <Card className="text-center">
+              <Card.Header style={{ fontSize: '60px' }}>{product.name}</Card.Header>
+                <Card.Img src={this.state.product.img} alt={this.state.product.name} />
+                <Card.Body>
+                  <Card.Title>{product.price}$</Card.Title>
+                  <Card.Text>
+                    {product.description}
+                  </Card.Text>
+                  {editProduct}
+                  {addToFavorites}
+                </Card.Body>
+                <Card.Footer className="text-muted">{additionalInformation}</Card.Footer>
+            </Card>
           </div>
           : 'Loading...'}
 
         {this.state.user
-          ? <Comments
-            productId={this.state.product._id}
-            comments={this.state.comments}
-            author={this.state.user.username}
-            addComment={this.addComment}
-            deleteComment={this.deleteComment}
-            updateComment={this.updateComment}
-            createNotification={this.props.createNotification}
-          />
+          ?           
+          <div className="col-sm-4" style={{display: 'inline-block'}}>
+            <Comments
+              productId={this.state.product._id}
+              comments={this.state.comments}
+              author={this.state.user.username}
+              addComment={this.addComment}
+              deleteComment={this.deleteComment}
+              updateComment={this.updateComment}
+              createNotification={this.props.createNotification}
+            />
+          </div>
           : ''}
       </div>
     )

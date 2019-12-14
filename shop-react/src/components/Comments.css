@@ -1,0 +1,55 @@
+.App-comments {
+    padding: 0;
+    margin-right: 4%;
+  }
+
+  .App-add-comment {
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: 'Shrikhand', cursive;
+    text-decoration: none;
+    outline: none;
+    margin: 15px auto 20px auto;
+    text-align: center;
+    transition: all .2s ease-in-out;
+  }
+  
+  .App-add-comment:hover {
+    transform: scale(1.2);
+  }
+  
+  .App-add-comment-btn {
+    text-align: center;
+  }
+
+  .App-comment-edit-input {
+    padding: 2px 0 0 0;
+    border-radius: 10px;
+    font-family: 'Shrikhand', cursive;
+    font-size: 14px;
+    text-decoration: none;
+    outline: none;
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 80%;
+    margin-bottom: 15px;
+    float: left;
+  }
+
+  .App-add-comment-input {
+    padding: 5px;
+    border-radius: 10px;
+    font-family: 'Shrikhand', cursive;
+    font-size: 18px;
+    text-decoration: none;
+    outline: none;
+    display: block;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    width: 50%;  
+  }
+  .App-body-title-comments {
+    text-align: center;
+    font-size: 26px;
+    margin-left: 4.5%;
+  }

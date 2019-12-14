@@ -13,9 +13,6 @@ class Product extends Component {
             <Card.Title>Price: {this.props.product.price}$</Card.Title>
             <Card.Text>{this.props.product.description}</Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
         </Card>
         <br/>
       </div>

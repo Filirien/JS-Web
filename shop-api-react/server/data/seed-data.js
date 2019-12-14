@@ -63,19 +63,6 @@ const productsArr = [
   },
 ]
 
-let commentsArr = [
-  {
-    text: 'Looks amasing!',
-    productId: '5b49ee1a6ac39b274d120ed2',
-    author: 'admin'
-  },
-  {
-    text: 'Classic',
-    productId: '5b49ee1a6ac39b274d120ed5',
-    author: 'admin'
-  }
-]
-
 module.exports = {
   categoriesArr,
   productsArr,

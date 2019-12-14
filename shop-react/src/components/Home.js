@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Products from './Products'
 
 import * as products from '../fetcher/products'
-import './Home.css'
 class Home extends Component {
   constructor (props) {
     super(props)

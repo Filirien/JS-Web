@@ -48,21 +48,22 @@
 } */
 
 body{        
-  padding-top: 100px;
   background-color: #f2f2f2;
 }
+
+/* Center the DIV horizontally */
 .container{
   width: 80%;
-  margin: 0 auto; /* Center the DIV horizontally */
+  margin: 0 auto; 
 }
 .fixed-header, .fixed-footer{
   width: 100%;
-  position: fixed;        
+  position: relative;        
   background: rgb(0, 204, 255);
   padding: 10px 0;
   color: #fff;
 }
-.fixed-header{
+.fixed-header{ 
   height: 100px;
   color: white;
   top: 0;

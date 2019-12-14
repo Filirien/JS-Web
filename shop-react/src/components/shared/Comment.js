@@ -58,11 +58,11 @@ class Comment extends Component {
       : <p>{' - ' + this.state.comment.text}</p>;
 
     let authorBtns = isAdmin || this.props.isCreator
-      ? <div>
-        <button onClick={this.editClick}>
+      ? <div className='App-comment-btn-wrapper'>
+        <button className='App-comment-btn' onClick={this.editClick}>
           {btnText}
         </button>
-        <button onClick={() => this.deleteClick(this.props.comment._id)}>
+        <button className='App-comment-btn' onClick={() => this.deleteClick(this.props.comment._id)}>
           Remove
         </button>
       </div>
@@ -70,9 +70,9 @@ class Comment extends Component {
 
     return (
       <div>
-        <div>
-          <span>{this.state.comment.author}</span>
-          <span>{this.formatTime(this.state.comment.date)}</span>
+        <div className='App-comment'>
+          <span className='App-comment-name'>{this.state.comment.author}</span>
+          <span className='App-comment-time'>{this.formatTime(this.state.comment.date)}</span>
           {commentText}
         </div>
         {authorBtns}

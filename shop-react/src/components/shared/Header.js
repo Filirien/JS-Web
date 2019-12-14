@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav } from 'react-bootstrap';
+import './Header.css'
 
 class Header extends Component {
     render() {
@@ -26,8 +27,8 @@ class Header extends Component {
             </Nav>;
 
         return (
-            <div class="fixed-header">
-                <div class="container">
+            <div className="fixed-header">
+                <div className="container-fluid">
                     <Navbar>
                         <Navbar.Brand href="/"><img src={this.props.logo} className="App-logo" alt="" /></Navbar.Brand>
                         {links}
