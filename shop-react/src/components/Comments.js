@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, InputGroup, FormControl } from 'react-bootstrap'
 import Comment from './shared/Comment'
 import './Comments.css'
 
@@ -54,7 +54,17 @@ class Comments extends Component {
     });
 
     let button = this.state.isEditing ? 'Post new comment' : 'Add new comment';
-    let input = this.state.isEditing ? <input type='text-area' value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} required /> : '';
+    let input = this.state.isEditing 
+    ?
+     <InputGroup>
+    <InputGroup.Prepend>
+      <InputGroup.Text >Your comment:</InputGroup.Text>
+    </InputGroup.Prepend>
+    <FormControl as="textarea" aria-label="Edit your comment" value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} isRequired/>
+  </InputGroup>
+    
+    //<input type='text-area' value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} required /> 
+    : '';
 
     return (
       <Card border="primary">
@@ -64,24 +74,10 @@ class Comments extends Component {
           {input}
         </Card.Body>
         <Card.Footer>
-          <Button onClick={this.handleBtnOnClick}>{button}</Button>
+          <Button variant="success" onClick={this.handleBtnOnClick}>{button}</Button>
         </Card.Footer>
       </Card>
     )
-    // return (
-    //   <div className='App-comments'>
-    //     <div className='App-body-title-comments'><p>Comments</p></div>
-    //     <div className='App-details-comments'>
-    //       {comments}
-    //       <div  className='App-add-comment-btn'>
-    //         <div className="App-add-comment-input" type="text-area"> {input}</div>           
-    //         <button className='App-add-comment' onClick={this.handleBtnOnClick}>
-    //           {button}
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // )
   }
 }
 

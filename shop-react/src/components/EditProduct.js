@@ -96,7 +96,7 @@ class EditProduct extends Component {
             <Form.Label>Additional information</Form.Label>
             <Form.Control value={this.state.additionalInformation} onChange={e => this.inputChange(e, 'additionalInformation')} />
           </Form.Group>
-          <Button variant="primary" type="submit">Edit product</Button>
+          <Button variant="success" style={{ position:'relative', left:'45%', marginBottom:'16.5%'}} type="submit">Edit product</Button>
         </Form>
       </div>
     )

@@ -6,7 +6,7 @@ class CategoryItem extends Component {
   render () {
     return (
       <Link className='App-category-item' to={'/categories/' + this.props.to}>
-        <p className="App-title">{this.props.name}</p>
+        <p className="App-category-item-title">{this.props.name}</p>
       </Link>
     );
   };

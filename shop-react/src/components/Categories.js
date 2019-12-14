@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import CategoryItem from './shared/CategoryItem'
 import * as fetcher from '../fetcher/categories'
-
+import { ListGroup, Item } from 'react-bootstrap'
 export default class Categories extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -11,28 +11,30 @@ export default class Categories extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     fetcher.allCategories().then(categories => {
       this.setState({ categories });
     });
   }
 
-  render () {
+  render() {
     const categoriesComponents = this.state.categories.map((item, index) => {
       return (
-        <CategoryItem
-          key={index}
-          name={item.name}
-          to={item.name}
-        />
+        <ListGroup.Item>
+          <CategoryItem
+            key={index}
+            name={item.name}
+            to={item.name}
+          />
+        </ListGroup.Item>
       );
     });
 
     return (
-      <div>
+      <ListGroup>
         <div className="App-title"><p>CATEGORIES</p></div>
         {categoriesComponents}
-      </div>
+      </ListGroup>
     )
   }
 }

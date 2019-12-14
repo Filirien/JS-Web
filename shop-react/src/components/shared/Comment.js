@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap';
 
 class Comment extends Component {
   constructor(props) {
@@ -53,28 +53,41 @@ class Comment extends Component {
 
   render() {
     let isAdmin = JSON.parse(localStorage.getItem('user')).roles[0] === 'Admin';
-    let btnText = this.state.isEditing ? 'Save' : 'Edit';
+    let editSaveBtn = this.state.isEditing
+      ?
+      <Button variant="success" style={{ marginLeft: '20px' }} onClick={this.editClick}>
+        Save
+     </Button>
+      :
+      <Button variant="warning" style={{ marginLeft: '20px' }} onClick={this.editClick}>
+        Edit
+        </Button>;
     let commentText = this.state.isEditing
-      ? <p><input type='text' value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} required /></p>
-      : <p>{' - ' + this.state.comment.text}</p>;
+      ?
+      <InputGroup>
+        <InputGroup.Prepend>
+          <InputGroup.Text >Edit your comment:</InputGroup.Text>
+        </InputGroup.Prepend>
+        <FormControl as="textarea" aria-label="Edit your comment" value={this.state.text} onChange={(e) => this.inputChange(e, 'text')} isRequired />
+      </InputGroup>
+      : <p>{this.state.comment.text}</p>;
 
     let authorBtns = isAdmin || this.props.isCreator
-      ? <div styles={{ position: 'relative' }}>
-        <Button  style={{ marginLeft: '20px'}} onClick={this.editClick}>
-          {btnText}
-        </Button>
-        <Button style={{ marginLeft: '20px'}} onClick={() => this.deleteClick(this.props.comment._id)}>
+      ?
+      <ButtonToolbar>
+        {editSaveBtn  }
+        <Button variant="danger" style={{ marginLeft: '20px' }} onClick={() => this.deleteClick(this.props.comment._id)}>
           Remove
         </Button>
-      </div>
+      </ButtonToolbar>
       : '';
 
     return (
       <div>
         <Card border="primary">
           <Card.Header>
-             {this.state.comment.author}  -  {this.formatTime(this.state.comment.date)}            
-          </Card.Header> 
+            {this.state.comment.author}  -  {this.formatTime(this.state.comment.date)}
+          </Card.Header>
           <Card.Body>
             <Card.Text>
               {commentText}
@@ -84,7 +97,7 @@ class Comment extends Component {
             {authorBtns}
           </Card.Footer>
         </Card>
-        <hr/>
+        <hr />
       </div>
     )
   }

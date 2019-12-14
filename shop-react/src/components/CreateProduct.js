@@ -87,7 +87,7 @@ class CreateProduct extends Component {
             <Form.Label>Additional information</Form.Label>
             <Form.Control value={this.state.additionalInformation} onChange={e => this.inputChange(e, 'additionalInformation')} placeholder="Additional information" />
           </Form.Group>
-          <Button variant="primary" type="submit">Create product</Button>
+          <Button variant="success" style={{ position:'relative', left:'45%', marginBottom:'12.5%'}} type="submit">Create product</Button>
         </Form>
       </div>
     )

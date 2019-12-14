@@ -23,7 +23,7 @@ class CategoryProducts extends Component {
   render () {
     let user = localStorage.getItem('user');
     let to = '/create/' + this.props.match.params.categoryName;
-    let addProductBtn = user ? <Button href={to} size="lg">Add product</Button> : '';
+    let addProductBtn = user ? <Button variant="success" style={{ position:'relative', left:'45%'}} href={to} size="lg">Add product</Button> : '';
     let title = this.props.title || this.props.match.params.categoryName.toUpperCase();
     return (
       <div>

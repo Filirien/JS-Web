@@ -50,7 +50,7 @@ class CreateCategory extends Component {
             <Form.Label>Name*</Form.Label>
             <Form.Control value={this.state.name} onChange={e => this.inputChange(e, 'name')} required placeholder="Name of category" />
           </Form.Group>
-          <Button variant="primary" type="submit">Create category</Button>
+          <Button variant="success" style={{ position:'relative', left:'45%', marginBottom:'33.5%'}} type="submit">Create category</Button>
         </Form>
       </div>
     )

@@ -87,38 +87,44 @@ class Details extends Component {
     if (product.additionalInformation && product.additionalInformation.length > 0) {
       additionalInformation = 'Additional information: ' + product.additionalInformation.join(', ')
     }
-    
+
     let user = localStorage.getItem('user');
-    let addToFavorites = user ? <Button style={{ marginLeft: 20}} onClick={this.addProductToFavorites}>{this.state.isAdded ? 'Remove from favorites' : 'Add to favorites'}</Button> : '';
+    let addToFavorites = user
+      ?
+        this.state.isAdded
+          ?
+          <Button variant="danger" style={{ marginLeft: 20 }} onClick={this.addProductToFavorites}>Remove from favorites</Button>
+          : <Button variant="success" style={{ marginLeft: 20 }} onClick={this.addProductToFavorites}>Add to favorites</Button>
+      : '';
     let isAdmin = user && JSON.parse(localStorage.getItem('user')).roles[0] === 'Admin';
-    let editProduct = isAdmin ? <Button href={`/edit/${this.props.match.params.productId}`}>Edit product</Button> : '';
+    let editProduct = isAdmin ? <Button variant="warning" href={`/edit/${this.props.match.params.productId}`}>Edit product</Button> : '';
 
     return (
-      <div className="col-sm-12" style={{display: 'inline-flex'}}> 
+      <div className="col-sm-12" style={{ display: 'inline-flex' }}>
         {product !== {}
           ?
-          <div className="col-sm-7" style={{display: 'inline-flex'}}>
-            <br/>
+          <div className="col-sm-7" style={{ display: 'inline-flex' }}>
+            <br />
             <Card className="text-center">
               <Card.Header className="App-title" style={{ fontSize: '200%' }}>{product.name}</Card.Header>
-                <Card.Img src={this.state.product.img} alt={this.state.product.name} />
-                <Card.Body>
-                  <Card.Title>Price: {product.price}$</Card.Title>
-                  <Card.Text>
-                    {product.description}
-                  </Card.Text>
-                  {editProduct}
-                  {addToFavorites}
-                </Card.Body>
-                <Card.Footer className="text-muted">{additionalInformation}</Card.Footer>
+              <Card.Img src={this.state.product.img} alt={this.state.product.name} />
+              <Card.Body>
+                <Card.Title>Price: {product.price}$</Card.Title>
+                <Card.Text>
+                  {product.description}
+                </Card.Text>
+                {editProduct}
+                {addToFavorites}
+              </Card.Body>
+              <Card.Footer className="text-muted">{additionalInformation}</Card.Footer>
             </Card>
           </div>
           : 'Loading...'}
 
         {this.state.user
-          ?           
-          <div className="col-sm-5" style={{display: 'inline-block'}}>
-            <br/>
+          ?
+          <div className="col-sm-5" style={{ display: 'inline-block' }}>
+            <br />
             <Comments
               productId={this.state.product._id}
               comments={this.state.comments}
