@@ -28,7 +28,7 @@ class CategoryProducts extends Component {
     return (
       <div>
         <div>
-          <p>
+          <p className="App-title">
             {title}
           </p>
           {addProductBtn}

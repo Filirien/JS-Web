@@ -65,6 +65,5 @@ const productsArr = [
 
 module.exports = {
   categoriesArr,
-  productsArr,
-  commentsArr
+  productsArr
 }

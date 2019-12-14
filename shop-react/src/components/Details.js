@@ -87,22 +87,22 @@ class Details extends Component {
     if (product.additionalInformation && product.additionalInformation.length > 0) {
       additionalInformation = 'Additional information: ' + product.additionalInformation.join(', ')
     }
-    let price = product.price;
+    
     let user = localStorage.getItem('user');
     let addToFavorites = user ? <Button style={{ marginLeft: 20}} onClick={this.addProductToFavorites}>{this.state.isAdded ? 'Remove from favorites' : 'Add to favorites'}</Button> : '';
     let isAdmin = user && JSON.parse(localStorage.getItem('user')).roles[0] === 'Admin';
     let editProduct = isAdmin ? <Button href={`/edit/${this.props.match.params.productId}`}>Edit product</Button> : '';
 
     return (
-      <div className="col-sm-12" style={{display: 'inline-block'}}> 
+      <div className="col-sm-12" style={{display: 'inline-flex'}}> 
         {product !== {}
           ?
-          <div className="col-sm-8" style={{display: 'inline-block'}}>
+          <div className="col-sm-7" style={{display: 'inline-flex'}}>
             <Card className="text-center">
-              <Card.Header style={{ fontSize: '60px' }}>{product.name}</Card.Header>
+              <Card.Header style={{ fontSize: '200%' }}>{product.name}</Card.Header>
                 <Card.Img src={this.state.product.img} alt={this.state.product.name} />
                 <Card.Body>
-                  <Card.Title>{product.price}$</Card.Title>
+                  <Card.Title>Price: {product.price}$</Card.Title>
                   <Card.Text>
                     {product.description}
                   </Card.Text>
@@ -116,7 +116,7 @@ class Details extends Component {
 
         {this.state.user
           ?           
-          <div className="col-sm-4" style={{display: 'inline-block'}}>
+          <div className="col-sm-5" style={{display: 'inline-block'}}>
             <Comments
               productId={this.state.product._id}
               comments={this.state.comments}

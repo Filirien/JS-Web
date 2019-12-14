@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Button, Card } from 'react-bootstrap';
 
 class Comment extends Component {
   constructor(props) {
@@ -58,25 +59,32 @@ class Comment extends Component {
       : <p>{' - ' + this.state.comment.text}</p>;
 
     let authorBtns = isAdmin || this.props.isCreator
-      ? <div className='App-comment-btn-wrapper'>
-        <button className='App-comment-btn' onClick={this.editClick}>
+      ? <div styles={{ position: 'relative' }}>
+        <Button  onClick={this.editClick}>
           {btnText}
-        </button>
-        <button className='App-comment-btn' onClick={() => this.deleteClick(this.props.comment._id)}>
+        </Button>
+        <Button onClick={() => this.deleteClick(this.props.comment._id)}>
           Remove
-        </button>
+        </Button>
       </div>
       : '';
 
     return (
       <div>
-        <div className='App-comment'>
-          <span className='App-comment-name'>{this.state.comment.author}</span>
-          <span className='App-comment-time'>{this.formatTime(this.state.comment.date)}</span>
-          {commentText}
-        </div>
-        {authorBtns}
-        <hr />
+        <Card border="primary">
+          <Card.Header>
+             {this.state.comment.author}  -  {this.formatTime(this.state.comment.date)}            
+          </Card.Header> 
+          <Card.Body>
+            <Card.Text>
+              {commentText}
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            {authorBtns}
+          </Card.Footer>
+        </Card>
+        <hr/>
       </div>
     )
   }
