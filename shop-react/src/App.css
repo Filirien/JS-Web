@@ -64,7 +64,7 @@ body{
 }
 .fixed-header, .fixed-footer{
   width: 100%;
-  position: relative;        
+  position: static;        
   background: rgb(0, 204, 255);
   padding: 10px 0;
   color: #fff;
