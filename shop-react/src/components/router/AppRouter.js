@@ -15,7 +15,7 @@ import CreateCategory from '../CreateCategory'
 import Logout from '../Logout'
 import CategoryProducts from '../CategoryProduct'
 import EditProduct from '../EditProduct'
-import Contacts from '../Contacts'
+import Locations from '../Locations'
 
 class AppRouter extends Component {
   render() {
@@ -24,7 +24,7 @@ class AppRouter extends Component {
         <Route path='/' exact component={Home} />
         <Route path='/categories' exact component={Categories} />
         <Route path='/favorites' exact component={Favorites} />
-        <Route path='/contacts' exact component={Contacts} />
+        <Route path='/locations' exact component={Locations} />
         <Route path='/login' render={props => <Login {...props} login={this.props.login} createNotification={this.props.createNotification} updateAppState={this.props.updateAppState} />} />
         <Route path='/myProfile' render={props => <MyProfile {...props} user={this.props.user} update={this.props.update}  createNotification={this.props.createNotification} />} />
         <Route path='/register' render={props => <Register {...props} register={this.props.register} createNotification={this.props.createNotification} updateAppState={this.props.updateAppState} />} />

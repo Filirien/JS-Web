@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-class Contacts extends Component {
+class Locations extends Component {
 
     render() {
         const mapStyles = {
@@ -26,4 +26,4 @@ class Contacts extends Component {
     
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCw1Cu5QmZqsFLWq-D7m12E3Qqjjj13xWY'
-})(Contacts);
+})(Locations);

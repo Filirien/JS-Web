@@ -16,14 +16,14 @@ class Header extends Component {
                 <Nav.Link href="/categories">Categories</Nav.Link>
                 <Nav.Link href="/favorites">Favorites</Nav.Link>
                 <Nav.Link href="/myProfile">My profile</Nav.Link>
-                <Nav.Link href="/contacts">Contacts</Nav.Link>
+                <Nav.Link href="/locations">Locations</Nav.Link>
                 <Nav.Link href="/logout">Logout</Nav.Link>
             </Nav>
             :
             <Nav className="mr-auto">
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
-                <Nav.Link href="/contacts">Contacts</Nav.Link>
+                <Nav.Link href="/locations">Locations</Nav.Link>
             </Nav>;
 
         return (
