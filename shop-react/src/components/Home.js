@@ -20,7 +20,7 @@ class Home extends Component {
   render () {
     return (
       <div>
-        <h1 className="App-title">Welcome to our new proposals</h1>
+        <h1 className="App-welcome">Welcome to our new proposals</h1>
         <Products
           products={this.state.newProducts}
         />

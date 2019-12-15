@@ -29,6 +29,13 @@
   font-size: 35px;
   text-align: center;
 }
+.App-welcome {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 40px;
+  text-align: center;
+}
 
 .App-category-item-title {
   text-shadow: 1px 1px 2px #000000;
