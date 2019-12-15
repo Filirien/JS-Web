@@ -37,7 +37,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ height: '828px'}}>
         <Form className="registerForm" onSubmit={this.formSubmit}>
           <div className='App-title'><p>LOGIN</p></div>
           <Form.Group>

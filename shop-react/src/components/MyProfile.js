@@ -46,10 +46,10 @@ class MyProfile extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div style={{ height: '828px'}}>
           {this.state.isEditing ?
             <div>
-              <Form style={{ height: '828px'}} onSubmit={this.editClick}>
+              <Form  onSubmit={this.editClick}>
                 <div className='App-title'><p>MY PROFILE</p></div>
                 <Form.Group>
                   <Form.Label>Username*</Form.Label>
@@ -74,7 +74,7 @@ class MyProfile extends Component {
             <Card style={{ width: '30rem', marginBottom:'2.8%' }}>
                 <Card.Title className='App-title'>MY PROFILE</Card.Title>
 
-              <Card.Img variant="top" src={this.state.imgUrl || './imgages/default-profile-picture.jpg'} />
+              <Card.Img variant="top" src={this.state.imgUrl || 'https://i.stack.imgur.com/34AD2.jpg'} />
               <Card.Body>
               <Card.Title>Username: {this.props.user.username}</Card.Title>
               <Card.Title>Name: {this.state.name}</Card.Title>

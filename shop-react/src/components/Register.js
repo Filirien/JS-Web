@@ -74,7 +74,7 @@ class Register extends Component {
    
     return (
       <div>
-        <Form className="registerForm" onSubmit={this.formSubmit}>
+        <Form className="registerForm" style={{ height: '828px'}} onSubmit={this.formSubmit}>
           <div className='App-title'><p>REGISTER</p></div>
           <Form.Group>
             <Form.Label>Full name</Form.Label>
