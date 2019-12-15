@@ -64,7 +64,7 @@ class CreateProduct extends Component {
   render() {
     return (
       <div>
-        <Form className="registerForm" onSubmit={this.onSubmit}>
+        <Form style={{height:'830px'}} onSubmit={this.onSubmit}>
           <div className="App-title">Create new product</div>
           <br/>
           <Form.Group>

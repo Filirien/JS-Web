@@ -49,7 +49,7 @@ class MyProfile extends Component {
         <div>
           {this.state.isEditing ?
             <div>
-              <Form className="registerForm" onSubmit={this.editClick}>
+              <Form style={{ height: '828px'}} onSubmit={this.editClick}>
                 <div className='App-title'><p>MY PROFILE</p></div>
                 <Form.Group>
                   <Form.Label>Username*</Form.Label>
@@ -71,7 +71,7 @@ class MyProfile extends Component {
               </Form>
             </div>
             :
-            <Card style={{ width: '30rem',  marginBottom:'2.8%' }}>
+            <Card style={{ width: '30rem', marginBottom:'2.8%' }}>
                 <Card.Title className='App-title'>MY PROFILE</Card.Title>
 
               <Card.Img variant="top" src={this.state.imgUrl || './imgages/default-profile-picture.jpg'} />
